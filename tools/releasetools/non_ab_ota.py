@@ -223,8 +223,8 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   # Build info
   script.Print("***********************************************")
-  script.Print("                  AlphaDroid")
-  script.Print("                  by elpaablo")
+  script.Print("               AlphaDroid Project")
+  script.Print("            based on crDroid Android")
 
   buildid = target_info.GetBuildProp("ro.alpha.modversion")
   androidver = target_info.GetBuildProp("ro.build.version.release")
@@ -234,17 +234,19 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   device = target_info.GetBuildProp("ro.build.product")
   manufacturer = target_info.GetBuildProp("ro.product.manufacturer")
   maintainer = target_info.GetBuildProp("ro.alpha.maintainer")
-  script.Print("***********************************************");
-  script.Print(" ROM version      : %s"%(buildid));
-  script.Print(" Android version  : %s"%(androidver));
-  script.Print(" Security patch   : %s"%(securep));
-  script.Print(" Build date       : %s"%(buildday));
-  script.Print("***********************************************");
-  script.Print(" Device           : %s"%(device));
-  script.Print(" Manufacturer     : %s"%(manufacturer));
-  script.Print(" Maintainer       : %s"%(maintainer));
-  script.Print("***********************************************");
-  script.Print("                                         ");
+  package = target_info.GetBuildProp("ro.alpha.build.package")
+  script.Print("***********************************************")
+  script.Print(" ROM version      : %s"%(buildid))
+  script.Print(" ROM package      : %s"%(package))
+  script.Print(" Android version  : %s"%(androidver))
+  script.Print(" Security patch   : %s"%(securep))
+  script.Print(" Build date       : %s"%(buildday))
+  script.Print("***********************************************")
+  script.Print(" Device           : %s"%(device))
+  script.Print(" Manufacturer     : %s"%(manufacturer))
+  script.Print(" Maintainer       : %s"%(maintainer))
+  script.Print("***********************************************")
+  script.Print("                                         ")
 
   device_specific.FullOTA_InstallBegin()
 
