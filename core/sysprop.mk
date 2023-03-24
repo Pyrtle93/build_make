@@ -159,12 +159,8 @@ endif
 # non-default dev keys (usually private keys from a vendor directory).
 # Both of these tags will be removed and replaced with "release-keys"
 # when the target-files is signed in a post-build step.
-ifeq ($(DEFAULT_SYSTEM_DEV_CERTIFICATE),build/make/target/product/security/testkey)
-BUILD_KEYS := test-keys
-else
-BUILD_KEYS := dev-keys
-endif
-BUILD_VERSION_TAGS += release-keys
+BUILD_KEYS := release-keys
+BUILD_VERSION_TAGS += $(BUILD_KEYS)
 BUILD_VERSION_TAGS := $(subst $(space),$(comma),$(sort $(BUILD_VERSION_TAGS)))
 
 # BUILD_FINGERPRINT is used used to uniquely identify the combined build and
@@ -207,7 +203,7 @@ BUILD_THUMBPRINT :=
 #
 
 # BUILD_ID: detail info; has the same info as the build fingerprint
-BUILD_DESC := $(TARGET_PRODUCT)-$(TARGET_BUILD_VARIANT) $(PLATFORM_VERSION) $(BUILD_ID) $(BUILD_NUMBER_FROM_FILE) $(BUILD_VERSION_TAGS)
+BUILD_DESC := $(BUILD_ID)
 
 # BUILD_DISPLAY_ID is shown under Settings -> About Phone
 ifeq ($(TARGET_BUILD_VARIANT),user)
