@@ -263,7 +263,6 @@ PRODUCT_PACKAGES += \
     sm \
     snapshotctl \
     snapuserd \
-    SoundPicker \
     storaged \
     surfaceflinger \
     svc \
